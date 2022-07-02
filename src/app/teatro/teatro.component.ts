@@ -44,6 +44,7 @@ export class TeatroComponent implements OnInit {
     this.selezionato = true;
   }
   prenotaRapido(zona, fila, posto) {
+    console.log('we')
     if (!this.prenotato) {
       this.teatro[zona][fila][posto] = this.nomeUtente;
       this.prenotato = true;
