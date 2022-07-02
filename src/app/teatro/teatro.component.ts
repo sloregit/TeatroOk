@@ -15,7 +15,6 @@ export class Selezione {
     this.posto = posto;
   }
 }
-
 @Component({
   selector: 'app-teatro',
   templateUrl: './teatro.component.html',
@@ -38,11 +37,15 @@ export class TeatroComponent implements OnInit {
       this.selezione.posto
     ] = this.nomeUtente;
   }
+  prenota(zona, fila, posto) {
+    if (!this.rapido) {
+      this.selezione = new Selezione(zona, fila, posto);
+      this.selezionato = true;
+    } else if (this.rapido) {
+    }
+  }
   seleziona(zona, fila, posto) {
-    console.log('seleziona');
-
     this.selezione = new Selezione(zona, fila, posto);
-
     this.selezionato = true;
   }
   prenotaRapido(zona, fila, posto) {
