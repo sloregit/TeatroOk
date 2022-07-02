@@ -3,25 +3,25 @@ import { TeatroDBService } from '../teatro-db.service';
 import { Observable, of, map, Subscription } from 'rxjs';
 import { Teatro } from '../app.component';
 
-export class Prenotazione {
+export class Selezione {
   zona: string;
-  nome: string;
+  //nome: string;
   fila: number;
   posto: number;
-  constructor(zona: string, nome: string, fila: number, posto: number) {
+  constructor(zona: string, fila: number, posto: number) {
     this.zona = zona;
-    this.nome = nome;
+    //this.nome = nome;
     this.fila = fila;
     this.posto = posto;
   }
 }
 
-export class Selezione {
-  selezionati: Array<Prenotazione>;
+export class SelezioneMultipla {
+  selezionati: Array<Selezione>;
   constructor() {
     this.selezionati = [];
   }
-  aggiungi(prenotazione: Prenotazione) {
+  aggiungi(prenotazione: Selezione) {
     this.selezionati.push(prenotazione);
   }
   rimuovi(fila: number, posto: number) {
@@ -41,29 +41,37 @@ export class TeatroComponent implements OnInit {
   @Input() rapido: boolean;
   @Input() datiIn$: Observable<Teatro>;
   @Input() nomeUtente: string;
-  teatro: Teatro;
   nomePosto: string;
+  teatro: Teatro;
   prenotato: boolean;
-  newPrenotazione: Prenotazione;
-  prenotaGruppo: Selezione;
+  selezione: Selezione;
   selezionato: boolean;
   sub: Subscription;
-  constructor() {}
-  confermaPrenotazioni() {
-    console.log(this.selezionato);
-  }
-  seleziona(zona, fila, posto) {
-    this.selezionato = this.teatro[zona][fila][posto];
-    console.log(this.selezionato);
-  }
-  prenotaRapido(zona, fila, posto) {
-    this.teatro[zona][fila][posto] = this.nomeUtente;
-    this.prenotato = true;
-  }
-  ngOnInit() {
+  constructor() {
     this.sub = this.datiIn$.subscribe((teatro: Teatro) => {
       this.teatro = teatro;
     });
     console.log(this.teatro);
   }
+  mostraNome(){
+    
+  }
+  confermaPrenotazioni() {
+    console.log(this.teatro);
+    this.teatro[this.selezione.zona][this.selezione.fila][
+      this.selezione.posto
+    ] = this.nomeUtente;
+  }
+  seleziona(zona, fila, posto) {
+    this.selezione = new Selezione(zona, fila, posto);
+    console.log(this.selezione);
+    this.selezionato = true;
+  }
+  prenotaRapido(zona, fila, posto) {
+    if (!this.prenotato) {
+      this.teatro[zona][fila][posto] = this.nomeUtente;
+      this.prenotato = true;
+    }
+  }
+  ngOnInit() {}
 }
