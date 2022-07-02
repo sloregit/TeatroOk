@@ -53,6 +53,9 @@ export class TeatroComponent implements OnInit {
   sub: Subscription;
   constructor() {}
   confermaPrenotazioni() {}
+  mostraNome(nome) {
+    console.log(nome.target);
+  }
   ngOnInit() {
     console.log(this.teatro);
 
