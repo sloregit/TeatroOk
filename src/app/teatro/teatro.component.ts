@@ -32,7 +32,6 @@ export class TeatroComponent implements OnInit {
   selezionato: boolean;
   sub: Subscription;
   constructor() {}
-  mostraNome() {}
   confermaPrenotazioni() {
     console.log(this.teatro);
     this.teatro[this.selezione.zona][this.selezione.fila][
@@ -49,6 +48,10 @@ export class TeatroComponent implements OnInit {
       this.teatro[zona][fila][posto] = this.nomeUtente;
       this.prenotato = true;
     }
+  }
+  //mostra il nome del posto prenotato
+  mostraNome($event: string) {
+    this.nomePosto = $event;
   }
   ngOnInit() {
     this.sub = this.datiIn$.subscribe((teatro: Teatro) => {
