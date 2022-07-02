@@ -4,6 +4,14 @@
   <app-gestione></app-gestione>
 </div>
 <div *ngIf="log">
+  <form>
+    <input
+      type="text"
+      name="nomeUtente"
+      [(nomeUtente)]="nomeUtente"
+      placeholder="inserisci il tuo nome"
+    />
+  </form>
   <app-teatro [datiIn$]="datiIn$"></app-teatro>
   <button (click)="indietro()">indietro</button>
 </div>

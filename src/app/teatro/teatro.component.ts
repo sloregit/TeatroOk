@@ -39,12 +39,14 @@ export class TeatroComponent implements OnInit {
     ] = this.nomeUtente;
   }
   seleziona(zona, fila, posto) {
+    console.log('seleziona');
+
     this.selezione = new Selezione(zona, fila, posto);
-    console.log(this.selezione);
+
     this.selezionato = true;
   }
   prenotaRapido(zona, fila, posto) {
-    console.log('we')
+    console.log('prenotaRapido');
     if (!this.prenotato) {
       this.teatro[zona][fila][posto] = this.nomeUtente;
       this.prenotato = true;
@@ -52,6 +54,7 @@ export class TeatroComponent implements OnInit {
   }
   //mostra il nome del posto prenotato
   mostraNome($event: string) {
+    console.log('mostraNome');
     this.nomePosto = $event;
   }
   ngOnInit() {
