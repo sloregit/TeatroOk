@@ -60,9 +60,11 @@ export class TeatroComponent implements OnInit {
     console.log('mostraNome');
     this.nomePosto = $event;
   }
-  ngOnInit() {
+  getTeatro(rapido) {
+    this.rapido = rapido;
     this.sub = this.datiIn$.subscribe((teatro: Teatro) => {
       this.teatro = teatro;
     });
   }
+  ngOnInit() {}
 }

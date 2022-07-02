@@ -1,6 +1,6 @@
 <button
   [ngClass]="nomePosto !== null ? 'prenotato' : 'libero'"
-  (click)="rapido ? prenotaV() : prenotaL()"
+  (click)="prenotaL()"
 >
-  {{ etichetta }}
+  {{ nomePosto }}
 </button>

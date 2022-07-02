@@ -7,10 +7,10 @@
   />
 </form>
 <div>
-  <button [disabled]="!nomeUtente" (click)="rapido = false">Prenota</button>
-  <button [disabled]="!nomeUtente" (click)="rapido = true">Rapida</button>
+  <button [disabled]="!nomeUtente" (click)="getTeatro(false)">Prenota</button>
+  <button [disabled]="!nomeUtente" (click)="getTeatro(true)">Rapida</button>
 </div>
-<div>
+<div *ngIf="teatro">
   <p #pippo *ngIf="nomePosto" [(ngModel)]="nomePosto">{{ nomePosto }}</p>
 
   <div *ngFor="let fila of teatro.platea; let i = index">

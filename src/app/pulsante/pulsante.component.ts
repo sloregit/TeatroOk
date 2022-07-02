@@ -23,14 +23,9 @@ export class PulsanteComponent implements OnInit {
         : (this.selezionato = true);
     }
     this.cliccato.emit();
-  }
-  prenotaV() {
-    if (!this.prenotato) {
-      this.cliccato.emit();
-    }
-  }
-  mostraNome() {
+    console.log(this.nomePosto);
     this.nomePostoEmitter.emit(this.nomePosto);
   }
+  mostraNome() {}
   ngOnInit() {}
 }
