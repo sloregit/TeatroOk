@@ -1,15 +1,6 @@
 <button
   [ngClass]="nomePosto !== null ? 'prenotato' : 'libero'"
-  *ngIf="rapido"
-  (click)="!nomePosto ? prenotaV() : mostraNome()"
->
-  {{ etichetta }}
-</button>
-<button
-  [ngClass]="selezionato && !prenotato ? 'selezionato' : 'nonSelezionato'"
-  [ngClass]="nomePosto !== null ? 'prenotato' : 'libero'"
-  *ngIf="!rapido"
-  (click)="!nomePosto ? prenotaL() : mostraNome()"
+  (click)="rapido ? prenotaV() : prenotaL()"
 >
   {{ etichetta }}
 </button>
