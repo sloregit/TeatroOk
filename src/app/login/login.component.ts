@@ -7,6 +7,7 @@ import { TeatroDBService } from '../teatro-db.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  Key: string = '0ef3f513';
   chiaveUtente: string;
   @Output() chiaveUtenteEmitter = new EventEmitter<string>();
   constructor() {}

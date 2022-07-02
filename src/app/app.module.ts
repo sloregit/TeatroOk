@@ -5,10 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TeatroDBService } from './teatro-db.service';
 import { LoginComponent } from './login/login.component';
+import { GestioneComponent } from './gestione/gestione.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, GestioneComponent],
   bootstrap: [AppComponent],
   providers: [TeatroDBService],
 })
