@@ -57,7 +57,7 @@ export class TeatroComponent implements OnInit {
     console.log(nome.target);
   }
   ngOnInit() {
-    console.log(this.teatro);
+    console.log(posto.value);
 
     this.sub = this.teatro.subscribe((teatro: Teatro) => {
       this.platea = teatro.platea;
