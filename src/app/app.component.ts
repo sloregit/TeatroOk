@@ -20,7 +20,8 @@ export class AppComponent {
     console.log(chiave);
   }
   //recupera i dati dal server
-  getDati() {
+  getDati(chiave) {
+    this.chiaveUtente = chiave;
     this.sub = this.TeatroDBService.getPrenotazioni$(
       this.chiaveUtente
     ).subscribe({
