@@ -1,7 +1,8 @@
 <p>0ef3f513</p>
-<div>
+<div *ngIf="!log">
   <app-login (chiaveUtenteEmitter)="getDati($event)"></app-login>
 </div>
-<div *ngIf="chiaveUtente">
-  <app-teatro></app-teatro>
+<div *ngIf="log">
+  <app-teatro [teatro]="datiIn"></app-teatro>
 </div>
+<button (click)="indietro()">indietro</button>

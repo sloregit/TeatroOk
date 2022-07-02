@@ -6,7 +6,7 @@
     placeholder="inserisci una chiave"
   />
 </form>
-<button (click)="accedi()">accedi</button>
+<button [disabled]="!chiaveUtente" (click)="accedi()">accedi</button>
 <div>
   <app-gestione></app-gestione>
   <p></p>
