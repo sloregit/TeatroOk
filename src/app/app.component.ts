@@ -27,7 +27,6 @@ export class AppComponent {
       this.chiaveUtente
     ).subscribe({
       next: (res: string) => {
-        console.log(JSON.parse(res));
         this.datiIn = of(JSON.parse(res));
       },
       error: (e) =>
