@@ -1,4 +1,5 @@
-import { Component, VERSION } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { TeatroDBService } from './teatro-db.service';
 
 @Component({
   selector: 'my-app',
@@ -6,5 +7,9 @@ import { Component, VERSION } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor(private TeatroDBService: TeatroDBService){};
+  @Input() chiaveUtente: string;
+  constructor() {}
+  accesso(chiave){
+    console.log(chiave)
+  }
 }
