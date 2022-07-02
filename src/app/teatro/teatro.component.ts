@@ -25,7 +25,6 @@ export class TeatroComponent implements OnInit {
   @Input() datiIn$: Observable<Teatro>;
   nomeUtente: string;
   rapido: boolean;
-
   nomePosto: string;
   teatro: Teatro;
   prenotato: boolean;
