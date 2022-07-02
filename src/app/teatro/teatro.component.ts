@@ -22,9 +22,10 @@ export class Selezione {
   styleUrls: ['./teatro.component.css'],
 })
 export class TeatroComponent implements OnInit {
-  @Input() rapido: boolean;
   @Input() datiIn$: Observable<Teatro>;
-  @Input() nomeUtente: string;
+  nomeUtente: string;
+  rapido: boolean;
+
   nomePosto: string;
   teatro: Teatro;
   prenotato: boolean;

@@ -4,18 +4,6 @@
   <app-gestione></app-gestione>
 </div>
 <div *ngIf="log">
-  <form>
-    <input
-      type="text"
-      name="nomeUtente"
-      [(ngModel)]="nomeUtente"
-      placeholder="inserisci il tuo nome"
-    />
-  </form>
-  <div>
-    <button (click)="rapido = false">Prenota</button>
-    <button (click)="rapido = true">Rapida</button>
-  </div>
-  <app-teatro [datiIn$]="datiIn$"[rapido] = "rapido"></app-teatro>
+  <app-teatro [datiIn$]="datiIn$"></app-teatro>
   <button (click)="indietro()">indietro</button>
 </div>
