@@ -15,22 +15,23 @@ export class Teatro {
 export class AppComponent {
   @Input() chiaveUtente: string;
   log: boolean = false;
-  datiIn;
-  sub;
+  datiIn$: Observable<Teatro>;
+  sub: Subscription;
   constructor(private TeatroDBService: TeatroDBService) {}
   indietro() {
-    this.datiIn = undefined;
+    this.datiIn$ = undefined;
     this.log = false;
   }
+
   //recupera i dati dal server
-  getDati(chiave) {
+  getDati(chiave: string) {
     this.chiaveUtente = chiave;
     this.sub = this.TeatroDBService.getPrenotazioni$(
       this.chiaveUtente
     ).subscribe({
       next: (res: string) => {
         console.log('ok getDati');
-        this.datiIn = of(JSON.parse(res));
+        this.datiIn$ = of(JSON.parse(res));
         this.log = true;
       },
       error: (e) =>

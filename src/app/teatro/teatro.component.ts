@@ -39,28 +39,31 @@ export class Selezione {
 })
 export class TeatroComponent implements OnInit {
   @Input() rapido: boolean;
-  @Input() teatro: Observable<Teatro>;
-  @Output() spettacoloChange = new EventEmitter<Observable<Teatro>>();
+  @Input() datiIn$: Observable<Teatro>;
   @Input() nomeUtente: string;
-  nomeSpettacolo: string;
+  teatro: Teatro;
   nomePosto: string;
-  platea: Array<Array<string>>;
-  palco: Array<Array<string>>;
   prenotato: boolean;
   newPrenotazione: Prenotazione;
   prenotaGruppo: Selezione;
   selezionato: boolean;
   sub: Subscription;
   constructor() {}
-  confermaPrenotazioni() {}
-  mostraNome(nome) {
-    console.log(nome.target);
+  confermaPrenotazioni() {
+    console.log(this.selezionato);
+  }
+  seleziona(zona, fila, posto) {
+    this.selezionato = this.teatro[zona][fila][posto];
+    console.log(this.selezionato);
+  }
+  prenotaRapido(zona, fila, posto) {
+    this.teatro[zona][fila][posto] = this.nomeUtente;
+    this.prenotato = true;
   }
   ngOnInit() {
-    this.sub = this.teatro.subscribe((teatro: Teatro) => {
-      this.platea = teatro.platea;
-      this.palco = teatro.palco;
+    this.sub = this.datiIn$.subscribe((teatro: Teatro) => {
+      this.teatro = teatro;
     });
-    console.log(this.platea);
+    console.log(this.teatro);
   }
 }
