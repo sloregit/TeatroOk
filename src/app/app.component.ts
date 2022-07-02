@@ -17,12 +17,11 @@ export class AppComponent {
   datiIn;
   sub;
   constructor(private TeatroDBService: TeatroDBService) {}
-  accesso(chiave) {
-    console.log(chiave);
-  }
+
   //recupera i dati dal server
   getDati(chiave) {
     this.chiaveUtente = chiave;
+    console.log(chiave);
     this.sub = this.TeatroDBService.getPrenotazioni$(
       this.chiaveUtente
     ).subscribe({

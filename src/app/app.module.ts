@@ -7,10 +7,16 @@ import { AppComponent } from './app.component';
 import { TeatroDBService } from './teatro-db.service';
 import { LoginComponent } from './login/login.component';
 import { GestioneComponent } from './gestione/gestione.component';
+import { TeatroComponent } from './teatro/teatro.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpClientModule],
-  declarations: [AppComponent, LoginComponent, GestioneComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    TeatroComponent,
+    GestioneComponent,
+  ],
   bootstrap: [AppComponent],
   providers: [TeatroDBService],
 })

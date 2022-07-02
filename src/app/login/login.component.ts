@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   @Output() chiaveUtenteEmitter = new EventEmitter<string>();
   constructor() {}
   accedi() {
+    console.log(this.chiaveUtente);
     this.chiaveUtenteEmitter.emit(this.chiaveUtente);
   }
   ngOnInit() {}

@@ -52,11 +52,12 @@ export class TeatroComponent implements OnInit {
   selezionato: boolean;
   sub: Subscription;
   constructor() {}
-
+  confermaPrenotazioni() {}
   ngOnInit() {
     this.sub = this.spettacolo.subscribe((teatro: Teatro) => {
       this.platea = teatro.platea;
       this.palco = teatro.palco;
     });
+    console.log(this.platea);
   }
 }
