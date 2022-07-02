@@ -8,6 +8,7 @@ import { TeatroDBService } from './teatro-db.service';
 import { LoginComponent } from './login/login.component';
 import { GestioneComponent } from './gestione/gestione.component';
 import { TeatroComponent } from './teatro/teatro.component';
+import { PulsanteComponent } from './pulsante/pulsante.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpClientModule],
@@ -15,6 +16,7 @@ import { TeatroComponent } from './teatro/teatro.component';
     AppComponent,
     LoginComponent,
     TeatroComponent,
+    PulsanteComponent,
     GestioneComponent,
   ],
   bootstrap: [AppComponent],
