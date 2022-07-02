@@ -16,22 +16,6 @@ export class Selezione {
   }
 }
 
-export class SelezioneMultipla {
-  selezionati: Array<Selezione>;
-  constructor() {
-    this.selezionati = [];
-  }
-  aggiungi(prenotazione: Selezione) {
-    this.selezionati.push(prenotazione);
-  }
-  rimuovi(fila: number, posto: number) {
-    this.selezionati.map((old, i) => {
-      if (old.fila === fila && old.posto === posto) {
-        this.selezionati.splice(i, 1);
-      }
-    });
-  }
-}
 @Component({
   selector: 'app-teatro',
   templateUrl: './teatro.component.html',
@@ -47,15 +31,8 @@ export class TeatroComponent implements OnInit {
   selezione: Selezione;
   selezionato: boolean;
   sub: Subscription;
-  constructor() {
-    this.sub = this.datiIn$.subscribe((teatro: Teatro) => {
-      this.teatro = teatro;
-    });
-    console.log(this.teatro);
-  }
-  mostraNome(){
-    
-  }
+  constructor() {}
+  mostraNome() {}
   confermaPrenotazioni() {
     console.log(this.teatro);
     this.teatro[this.selezione.zona][this.selezione.fila][
@@ -73,5 +50,9 @@ export class TeatroComponent implements OnInit {
       this.prenotato = true;
     }
   }
-  ngOnInit() {}
+  ngOnInit() {
+    this.sub = this.datiIn$.subscribe((teatro: Teatro) => {
+      this.teatro = teatro;
+    });
+  }
 }
