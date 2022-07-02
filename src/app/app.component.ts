@@ -18,6 +18,7 @@ export class AppComponent {
   datiIn$: Observable<Teatro>;
   sub: Subscription;
   nomeUtente;
+  rapido;
   constructor(private TeatroDBService: TeatroDBService) {}
   indietro() {
     this.datiIn$ = undefined;

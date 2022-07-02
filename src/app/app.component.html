@@ -8,10 +8,14 @@
     <input
       type="text"
       name="nomeUtente"
-      [(nomeUtente)]="nomeUtente"
+      [(ngModel)]="nomeUtente"
       placeholder="inserisci il tuo nome"
     />
   </form>
-  <app-teatro [datiIn$]="datiIn$"></app-teatro>
+  <div>
+    <button (click)="rapido = false">Prenota</button>
+    <button (click)="rapido = true">Rapida</button>
+  </div>
+  <app-teatro [datiIn$]="datiIn$"[rapido] = "rapido"></app-teatro>
   <button (click)="indietro()">indietro</button>
 </div>
