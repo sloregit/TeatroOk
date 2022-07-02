@@ -53,5 +53,10 @@ export class TeatroComponent implements OnInit {
   sub: Subscription;
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.sub = this.spettacolo.subscribe((teatro: Teatro) => {
+      this.platea = teatro.platea;
+      this.palco = teatro.palco;
+    });
+  }
 }
