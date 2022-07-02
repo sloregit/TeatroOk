@@ -44,11 +44,12 @@ export class TeatroComponent implements OnInit {
     } else if (this.rapido) {
     }
   }
-  seleziona(zona, fila, posto) {
+  seleziona($event, zona, fila, posto) {
+    this.nomePosto = $event;
     this.selezione = new Selezione(zona, fila, posto);
     this.selezionato = true;
   }
-  prenotaRapido(zona, fila, posto) {
+  prenotaRapido($event, zona, fila, posto) {
     console.log('prenotaRapido');
     if (!this.prenotato) {
       this.teatro[zona][fila][posto] = this.nomeUtente;

@@ -11,8 +11,6 @@
   <button [disabled]="!nomeUtente" (click)="getTeatro(true)">Rapida</button>
 </div>
 <div *ngIf="teatro">
-  <p #pippo *ngIf="nomePosto" [(ngModel)]="nomePosto">{{ nomePosto }}</p>
-
   <div *ngFor="let fila of teatro.platea; let i = index">
     <span *ngFor="let posto of fila; let j = index">
       <app-pulsante
@@ -20,8 +18,11 @@
         [etichetta]="'P' + i + j"
         [prenotato]="prenotato"
         [rapido]="rapido"
+        (cliccato)="nomePosto = $event"
         (cliccato)="
-          rapido ? prenotaRapido('platea', i, j) : seleziona('platea', i, j)
+          rapido
+            ? prenotaRapido($event, 'palco', i, j)
+            : seleziona($event, 'palco', i, j)
         "
       >
       </app-pulsante>
@@ -35,8 +36,11 @@
         [etichetta]="'P' + n + m"
         [prenotato]="prenotato"
         [rapido]="rapido"
+        (cliccato)="nomePosto = $event"
         (cliccato)="
-          rapido ? prenotaRapido('palco', n, m) : seleziona('palco', n, m)
+          rapido
+            ? prenotaRapido($event, 'palco', n, m)
+            : seleziona($event, 'palco', n, m)
         "
       >
       </app-pulsante>
