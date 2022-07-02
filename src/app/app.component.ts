@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { TeatroDBService } from './teatro-db.service';
+import { Observable, of, map, Subscription } from 'rxjs';
 
 export class Teatro {
   platea: Array<Array<string>>;
@@ -27,6 +28,7 @@ export class AppComponent {
     ).subscribe({
       next: (res: string) => {
         console.log(JSON.parse(res));
+        this.datiIn = of(JSON.parse(res));
       },
       error: (e) =>
         console.error('Observer got an error: ' + JSON.stringify(e)),
